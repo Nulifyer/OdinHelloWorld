@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "command": "",
+    "args": [],
+    "tasks": [
+        {
+            "label": "mkdir-bin",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/C",
+                "if not exist .\\bin mkdir .\\bin"
+            ]
+        },
+        {
+            "label": "compile-debug",
+            "type": "shell",
+            "command": "odin build . -debug -out:bin/debug.exe",
+            "group": "build"
+        },
+        {
+            "label": "build-debug",
+            "dependsOn": [
+                "mkdir-bin",
+                "compile-debug"
+            ]
+        }
+    ]
+}
